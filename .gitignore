@@ -1,0 +1,33 @@
+# Build / bin / obj
+Backend/bin/
+Backend/obj/
+UnitTests/obj/
+UnitTests/bin/
+
+# Visual Studio / Rider / IDE
+.vs/
+*.user
+*.suo
+*.vscode/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.log
+*.db
+*.cache
+
+# NuGet
+*.nupkg
+packages/
+
+# Entity Framework
+*.db
+*.sql
+
+# DotEnv
+.env
+
+# Publish output
+publish/
