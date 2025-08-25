@@ -20,7 +20,7 @@
 ## Décomposition
 - Préparer l'environnement docker
   - .NET 9 SDK 12
-- Initialiser le projet API MVC
+- Initialiser le projet Web Api
 - Ajouter les package EFCore & Tools
 - Ajouter EF Core Identity
 - Gérer la liaison avec la database (MySql EntityFramework et ContextDatabase)
