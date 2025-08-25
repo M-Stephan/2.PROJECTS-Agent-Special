@@ -1,0 +1,30 @@
+# Build / bin / obj
+/bin/
+/obj/
+
+# Visual Studio / Rider / IDE
+.vs/
+*.user
+*.suo
+*.vscode/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.log
+*.db
+
+# NuGet
+*.nupkg
+packages/
+
+# Entity Framework
+*.db
+*.sql
+
+# DotEnv
+.env
+
+# Publish output
+publish/
