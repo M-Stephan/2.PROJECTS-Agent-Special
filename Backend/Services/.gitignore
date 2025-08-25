@@ -1,8 +1,6 @@
 # Build / bin / obj
-./Backend/bin/
-./Backend/obj/
-./UnitTests/bin/
-./UnitTests/obj/
+**/bin/
+**/obj/
 
 # Visual Studio / Rider / IDE
 .vs/
@@ -16,6 +14,7 @@
 *.pdb
 *.log
 *.db
+*.cache
 
 # NuGet
 *.nupkg
