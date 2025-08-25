@@ -23,7 +23,7 @@ Votre mission : retracer son parcours, ses recherches et ses créations pour dé
 
 ## Chapitre 1 — Les premières suspicions
 - Il y a 3 ans, le développeur commence en tant que **joueur roleplay sur FiveM**.
-- Ses recherches sur drogues, armes et backdoors pour ses ressources RP. (suscitent des suspicions.)
+- Ses recherches sur drogues, armes pour ses ressources RP. (suscitent des suspicions.)
 - Il n’avait aucune connaissance en code au départ.
 
 ---
