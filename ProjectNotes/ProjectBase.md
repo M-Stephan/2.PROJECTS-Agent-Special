@@ -66,16 +66,16 @@
 - Les zones seront vide au départ et se remplira au fur et a mesure que le joueur accompli les recherches
 - Le jeu est terminé quand le CV / Vcard est complet a la toute fin il faudra envoyer la "fiche" et le jeu sera réussi 
 
-# Persistence & offline
+## Persistence & offline
 - Visiteur non connecté : pas d'enregistrement obligation de tout jouer en une fois
 - Utilisateur connecté : progression stockée en DB.
 
-# Sécurité & Conformité
+## Sécurité & Conformité
 - Hash des mots de passe via Identity (PBKDF2 par défaut).
 - RGPD light : page “données” + suppression compte (DELETE /me optionnel) + export (optionnel).
 - Secrets : jamais commiter, passés par .env
 
-# Infra & Docker
+## Infra & Docker
 - Dev (Local)
   - Container : Environnement Node.js & .NET (pour C# .NET ASP.NET EFCore Backend & React Frontend)
   - Docker Desktop : Containerisation
