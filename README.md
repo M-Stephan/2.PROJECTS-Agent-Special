@@ -46,7 +46,29 @@
 racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     |
     ├─ README.md
+    |
+    ├─ Backend.sln
+    |
+    ├─ Backend/
+    |   ├─ bin/
+    |   ├─ obj/
+    |   ├─ Properties/
+    |   |   └─ launchSettings.json
+    |   ├─ appsettings.json
+    |   ├─ appsettings.Development.json
+    |   ├─ Backend.csproj
+    |   ├─ Backend.http
+    |   └─ Program.cs
+    |
+    ├─ UnitTests/
+    |   ├─ bin/
+    |   ├─ obj/
+    |   ├─ UnitTests.csproj
+    |   └─ UnitTest1.cs
+    |
     └─ ProjectNotes/ (Toutes les notes durant le developpement du projet)
+    |   ├─ Backend.md (Decompose les steps pour le backend)
+    |   ├─ Histoire.md (Histoire du jeu et IRL permettra de construire le frontend et la progression du jeu)
         └─ ProjectBase.md (Premier jet sur feuille description des idées de départ et des tech à utiliser)
 ```
 
