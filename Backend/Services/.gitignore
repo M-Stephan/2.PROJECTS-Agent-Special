@@ -1,6 +1,8 @@
 # Build / bin / obj
-/bin/
-/obj/
+Backend/bin/
+Backend/obj/
+UnitTests/bin/
+UnitTests/obj/
 
 # Visual Studio / Rider / IDE
 .vs/
