@@ -6,12 +6,12 @@ using DotNetEnv;
 using Backend.Data;
 using Backend.Services;
 
-// Load .env file
+/// Load .env file
 Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Build connection string from env
+/// Build connection string from .env
 string GetConnectionStringFromEnv() =>
     $"server={Env.GetString("DB_SERVER")};" +
     $"port={Env.GetString("DB_PORT")};" +
@@ -21,61 +21,27 @@ string GetConnectionStringFromEnv() =>
 
 builder.Configuration["ConnectionStrings:DefaultConnection"] = GetConnectionStringFromEnv();
 
-// --- Services ---
-// DbContext + Identity
+/// --- Services ---
+/// DbContext + Identity
 ServiceConfigurator.ConfigureDbAndIdentity(builder.Services, builder.Configuration);
 
-// Controllers
+/// Controllers
 builder.Services.AddControllers();
 
-// Swagger / OpenAPI
+/// Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "BackendAPI",
-        Version = "v1",
-        Description = "Documentation et tests du backend - projet AgentSpecial"
-    });
+ServiceConfigurator.ConfigureSwagger(builder.Services);
 
-    // Optional JWT auth
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "JWT Authorization header using the Bearer scheme."
-    });
-
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-});
-
-// Scalar middleware uses Swagger JSON, no AddScalar in services
+/// Scalar middleware uses Swagger JSON, no AddScalar in services
 var app = builder.Build();
 
-// --- Middleware ---
+/// --- Middleware ---
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 
-    // Scalar API Reference configured to use Swagger
+    /// Scalar API Reference configured to use Swagger
     app.MapScalarApiReference(options =>
     {
         options.WithOpenApiRoutePattern("/swagger/{documentName}/swagger.json");
@@ -91,7 +57,7 @@ else
     app.MapScalarApiReference();
 }
 
-// Auth & routing
+/// Auth & routing
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

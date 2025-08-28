@@ -14,11 +14,12 @@
 - .env
 - .gitignore
 - build et fix all errors (build OKAY)
+- Découper Program.cs dans ServiceConfigurator.cs
+- Préparer la ApplicationDbContext.cs avec la base mini pour mon jeu
+- ef Migration & ef Update
+- UserDTO
+- Player.cs
 
 
 # Suite
-- Découper Programm.cs dans ServiceConfigurator.cs
-- Préparer la ApplicationDbContext.cs avec la base mini pour mon jeu
-- ef Migration & ef Updtade
-- Commencer les modeles et DTO pour le jeu
-- Services IServices et Controller pour l'API avec Microsoft.AspNetCore.Authorization;
+- Services IServices et Controller pour User
