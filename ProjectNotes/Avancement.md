@@ -19,7 +19,7 @@
 - ef Migration & ef Update
 - UserDTO
 - Player.cs
-
+- IUserServices
 
 # Suite
-- Services IServices et Controller pour User
+-  UserServices et UserController
