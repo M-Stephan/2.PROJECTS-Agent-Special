@@ -1,6 +1,6 @@
 using System;
 
-namespace backend.DTOs
+namespace Backend.DTOs
 {
     public class UserDTO
     {
