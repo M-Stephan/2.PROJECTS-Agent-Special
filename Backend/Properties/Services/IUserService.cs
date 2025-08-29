@@ -13,7 +13,7 @@ namespace Backend.Services
         /// Get all users into the database
         /// </summary>
         /// <returns>List<UserDTO></returns>
-        Task<IEnumerable<UserDTO>> GetAllUserAsync();
+        Task<IEnumerable<UserDTO>> GetAllUsersAsync();
 
         /// <summary>
         ///     Get a user by his Id
@@ -21,14 +21,6 @@ namespace Backend.Services
         /// <param name="id"></param>
         /// <returns>UserDTO</returns>
         Task<UserDTO?> GetUserByIdAsync(string id);
-
-        /// <summary>
-        ///     Create a user and save into the database
-        /// </summary>
-        /// <param name="userDto"></param>
-        /// <param name="password"></param>
-        /// <returns>MapToDTO(ApplicationUser)</returns>
-        Task<UserDTO> CreateUserAsync(UserDTO userDto, string password);
 
         /// <summary>
         ///     Update a user 
@@ -50,10 +42,9 @@ namespace Backend.Services
         /// <summary>
         ///     Register User
         /// </summary>
-        /// <param name="userDto"></param>
-        /// <param name="password"></param>
+        /// <param name="model">RegisterDTO</param>
         /// <returns>Boolean</returns>
-        Task<bool> RegisterAsync(UserDTO userDto, string password);
+        Task<bool> RegisterAsync(RegisterDTO model);
 
         /// <summary>
         ///     Login User

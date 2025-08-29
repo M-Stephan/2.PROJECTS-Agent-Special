@@ -1,9 +1,10 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
 using Backend.Data;
+using Backend.Models;
 
 namespace Backend.Services
 {
@@ -13,9 +14,16 @@ namespace Backend.Services
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseMySQL(config.GetConnectionString("DefaultConnection")!));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                    .AddEntityFrameworkStores<ApplicationDbContext>()
-                    .AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+                {
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequiredLength = 1;
+                })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
         }
 
         public static void ConfigureSwagger(IServiceCollection services)
@@ -24,13 +32,13 @@ namespace Backend.Services
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "BackendAPI",
+                    Title = "EF Core Web API",
                     Version = "v1",
-                    Description = "Documentation et tests du backend - projet AgentSpecial"
+                    Description = "Documentation for my last project of the year at becode ^^"
                 });
 
                 /// Optional JWT auth
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                /* options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
                     Type = SecuritySchemeType.Http,
@@ -53,7 +61,7 @@ namespace Backend.Services
                         },
                         new string[]{}
                     }
-                });
+                });*/
             });
         }
     }

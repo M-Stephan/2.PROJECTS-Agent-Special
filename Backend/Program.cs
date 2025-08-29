@@ -7,7 +7,11 @@ using Backend.Data;
 using Backend.Services;
 
 /// Load .env file
-Env.Load();
+Env.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
+
+Console.WriteLine($"[DEBUG] DB_SERVER = {Env.GetString("DB_SERVER")}");
+Console.WriteLine($"[DEBUG] DB_NAME   = {Env.GetString("DB_NAME")}");
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,7 @@ ServiceConfigurator.ConfigureDbAndIdentity(builder.Services, builder.Configurati
 
 /// Controllers
 builder.Services.AddControllers();
+builder.Services.AddScoped<IUserServices, UserService>();
 
 /// Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();

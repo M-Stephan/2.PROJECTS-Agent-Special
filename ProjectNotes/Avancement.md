@@ -1,6 +1,8 @@
 # Avancement du projet AgentSpecial
 
-## Partie Backend OK
+## Partie Backend
+
+### Done
 - Initialisation d'un projet .NET Core WEB-API 9.0.304
 - Initialisation xUnit
 - add .csproj Test et projet + reference xUnit
@@ -20,6 +22,78 @@
 - UserDTO
 - Player.cs
 - IUserServices
+- UserServices
+- UserController
+- LoginDTO
+- RegisterDTO
 
-# Suite
--  UserServices et UserController
+### Todo
+- Player (propriétés et constructeur)
+    - Une modification vient d'avoir lieu ↓
+    ```csharp
+    using System;
+    using System.ComponentModel.DataAnnotations;
+  
+    namespace Backend.Models
+    {
+        public class Player
+        {
+            [Key]
+            public int Id { get; set; }
+  
+            [MaxLength(30)]
+            public string FirstName { get; set; } = string.Empty;
+  
+            [MaxLength(30)]
+            public string LastName { get; set; } = string.Empty;
+  
+            public int? Age { get; set; } = null;
+  
+            public int? Progression { get; set; } = null;
+        }
+    }
+    
+    ```
+    - *Ajout de la propriété Progression**
+- Creation du player dans la db
+- IPlayerService.cs
+- PlayerService.cs
+- PlayerDTO.cs
+- PlayerController.cs
+
+### Informations
+- Version du projet
+```csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.8" />
+
+    <!-- Entity Framework Core -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8" />
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
+
+    <!-- MySQL -->
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.6" />
+
+    <!-- Swagger / OpenAPI -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
+
+    <!-- Scalar -->
+    <PackageReference Include="Scalar.AspNetCore" Version="2.5.3" />
+  </ItemGroup>
+
+</Project>
+```
+

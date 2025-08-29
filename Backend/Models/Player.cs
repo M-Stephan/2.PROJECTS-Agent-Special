@@ -15,5 +15,7 @@ namespace Backend.Models
         public string LastName { get; set; } = string.Empty;
 
         public int? Age { get; set; } = null;
+
+        public int? Progression { get; set; } = null;
     }
 }
