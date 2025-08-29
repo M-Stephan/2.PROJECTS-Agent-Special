@@ -17,5 +17,7 @@ namespace Backend.Models
         public int? Age { get; set; } = null;
 
         public int? Progression { get; set; } = null;
+
+        public bool GameOver { get; set; } = false;
     }
 }
