@@ -26,40 +26,15 @@
 - UserController
 - LoginDTO
 - RegisterDTO
-
-### Todo
-- Player (propriétés et constructeur)
-    - Une modification vient d'avoir lieu ↓
-    ```csharp
-    using System;
-    using System.ComponentModel.DataAnnotations;
-  
-    namespace Backend.Models
-    {
-        public class Player
-        {
-            [Key]
-            public int Id { get; set; }
-  
-            [MaxLength(30)]
-            public string FirstName { get; set; } = string.Empty;
-  
-            [MaxLength(30)]
-            public string LastName { get; set; } = string.Empty;
-  
-            public int? Age { get; set; } = null;
-  
-            public int? Progression { get; set; } = null;
-        }
-    }
-    
-    ```
-    - *Ajout de la propriété Progression**
 - Creation du player dans la db
 - IPlayerService.cs
 - PlayerService.cs
 - PlayerDTO.cs
 - PlayerController.cs
+
+
+### Todo
+
 
 ### Informations
 - Version du projet

@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Backend.Services
 {
-    public interface IUserServices
+    public interface IPlayerService
     {
+
         /* --- C.R.U.D --- */
 
         /// <summary>
@@ -24,7 +25,7 @@ namespace Backend.Services
         /// </summary>
         /// <param name="id">Player.Id</param>
         /// <returns>PlayerDTO</returns>
-        Task<PlayerDTO?> GetPlayerByIdAsync(string userId);
+        Task<PlayerDTO?> GetPlayerByUserIdAsync(string userId);
 
         /// <summary>
         ///     Update a Player

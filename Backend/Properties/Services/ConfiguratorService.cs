@@ -8,7 +8,7 @@ using Backend.Models;
 
 namespace Backend.Services
 {
-    public static class ServiceConfigurator
+    public static class ConfiguratorService
     {
         public static void ConfigureDbAndIdentity(IServiceCollection services, IConfiguration config)
         {

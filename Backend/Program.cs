@@ -27,15 +27,17 @@ builder.Configuration["ConnectionStrings:DefaultConnection"] = GetConnectionStri
 
 /// --- Services ---
 /// DbContext + Identity
-ServiceConfigurator.ConfigureDbAndIdentity(builder.Services, builder.Configuration);
+ConfiguratorService.ConfigureDbAndIdentity(builder.Services, builder.Configuration);
 
 /// Controllers
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserServices, UserService>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
+
 
 /// Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();
-ServiceConfigurator.ConfigureSwagger(builder.Services);
+ConfiguratorService.ConfigureSwagger(builder.Services);
 
 /// Scalar middleware uses Swagger JSON, no AddScalar in services
 var app = builder.Build();
