@@ -1,0 +1,12 @@
+.main-page {
+    position: relative;
+    display: grid;
+    margin: 5px;
+    grid-column: 1 / 4;
+    place-items: center;
+}
+
+.button-return {
+    grid-column: 1 / 4;
+    margin-top: 4px;
+}

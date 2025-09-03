@@ -43,8 +43,8 @@ namespace Backend.Services
         ///     Register User
         /// </summary>
         /// <param name="model">RegisterDTO</param>
-        /// <returns>Boolean</returns>
-        Task<bool> RegisterAsync(RegisterDTO model);
+        /// <returns>UserDTO</returns>
+        Task<UserDTO?> RegisterAsync(RegisterDTO model);
 
         /// <summary>
         ///     Login User

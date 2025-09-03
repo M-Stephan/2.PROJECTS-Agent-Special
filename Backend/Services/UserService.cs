@@ -110,7 +110,7 @@ namespace Backend.Services
 
         // ------------------ AUTH ------------------
 
-        public async Task<bool> RegisterAsync(RegisterDTO model)
+        public async Task<UserDTO?> RegisterAsync(RegisterDTO model)
         {
             var user = new ApplicationUser
             {
@@ -124,12 +124,23 @@ namespace Backend.Services
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded) return false;
+            if (!result.Succeeded) return null;
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            return true;
-        }
 
+            
+            return new UserDTO
+            {
+                Id = user.Id
+                Email = user.Email!,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                Phone = user.PhoneNumber,
+                DateOfBirth = user.DateOfBirth,
+                Player = user.Player != null ? $"{user.Player.FirstName} {user.Player.LastName}" : null
+            };
+        }
         public async Task<string?> LoginAsync(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);

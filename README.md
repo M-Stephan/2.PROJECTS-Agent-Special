@@ -52,6 +52,26 @@ racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     ├─ Backend/
     |   ├─ bin/
     |   ├─ obj/
+    |   ├─ Controllers/
+    |   |   ├─ PlayerController.cs
+    |   |   └─ UserController.cs
+    |   ├─ Data/
+    |   |   ├─ ApplicationDbContext.cs
+    |   |   └─ ApplicationDbContextFactory.cs
+    |   ├─ DTOs/
+    |   |   ├─ LoginDTO.cs
+    |   |   ├─ PlayerDTO.cs
+    |   |   ├─ RegisterDTO.cs
+    |   |   └─ UserDTO.cs
+    |   ├─ Models/
+    |   |   ├─ ApplicationUser.cs
+    |   |   └─ Player.cs
+    |   ├─ Services/
+    |   |   ├─ ConfiguratorService.cs
+    |   |   ├─ IPlayerService.cs
+    |   |   ├─ IUserService.cs
+    |   |   ├─ PlayerService.cs
+    |   |   └─ UserService.cs
     |   ├─ Properties/
     |   |   └─ launchSettings.json
     |   ├─ appsettings.json

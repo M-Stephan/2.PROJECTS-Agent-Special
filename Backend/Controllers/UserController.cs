@@ -60,12 +60,13 @@ namespace Backend.Controllers
         // ------------------ AUTH ------------------
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register([FromBody] RegisterDTO model)
+        public async Task<ActionResult<UserDTO>> Register([FromBody] RegisterDTO model)
         {
-            var success = await _userService.RegisterAsync(model);
-            if (!success)
+            var user = await _userService.RegisterAsync(model);
+            if (user == null)
                 return BadRequest("Registration failed.");
-            return Ok("User registered successfully.");
+
+            return Ok(user); // Renvoie tout le UserDTO
         }
 
         [HttpPost("login")]
