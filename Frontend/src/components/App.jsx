@@ -12,26 +12,32 @@ function App() {
             await fetch('https://as-backend.duckdns.org/api/User/logout', {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`,
                 },
             });
         } catch (err) {
-          console.error(err);
+        console.error(err);
         }
 
         localStorage.removeItem("userId");
         localStorage.removeItem("token");
+
+        // on met à jour userId immédiatement
         setUserId(null);
 
-        if (mainPageRef.current) mainPageRef.current.resetStatus();
+        // on demande à MainPage de revenir à l'écran principal
+        if (mainPageRef.current) mainPageRef.current.handleLogoutReset();
     };
 
+
     return (
-        <div className="app">
+        <>
             <Header userId={userId} onLogout={handleLogout} />
-            <MainPage ref={mainPageRef} userId={userId} setUserId={setUserId} />
-        </div>
+            <div className="app">
+                <MainPage ref={mainPageRef} userId={userId} setUserId={setUserId} />
+            </div>
+        </>
     );
 }
 

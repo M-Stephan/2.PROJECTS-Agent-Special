@@ -4,7 +4,7 @@ import '../styles/Header.css';
 function Header({ userId, onLogout }) {
   return (
     <div className="header">
-      <h1>Agent Secret</h1>
+      <h1 className='header-title'>Agent Secret</h1>
       {userId && (
         <button className="logout-button" onClick={onLogout}>
           Se déconnecter

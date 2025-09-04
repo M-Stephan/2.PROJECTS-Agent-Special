@@ -15,18 +15,6 @@ Console.WriteLine($"[DEBUG] DB_NAME   = {Env.GetString("DB_NAME")}");
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowLocalhost",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5173")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
-});
-
 /// Build connection string from .env
 string GetConnectionStringFromEnv() =>
     $"server={Env.GetString("DB_SERVER")};" +
@@ -79,7 +67,7 @@ else
 
 // Auth & routing
 app.UseHttpsRedirection();
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

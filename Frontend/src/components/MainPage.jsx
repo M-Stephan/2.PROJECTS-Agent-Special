@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from "react";
 import Screen from "./Screen";
 import Register from "./Register";
 import Login from "./Login";
@@ -10,8 +10,8 @@ import mouse from "../assets/mouse1.png";
 
 const mouseSize = 200;
 
-function MainPage() {
-  const [userId, setUserId] = useState(localStorage.getItem("userId") || null);
+const MainPage = forwardRef(({ userId: propUserId, setUserId }, ref) => {
+  const userId = propUserId;
   const [statusAccount, setStatusAccount] = useState(null);
   const [fade, setFade] = useState(true);
   const [nextStatus, setNextStatus] = useState(null);
@@ -38,6 +38,11 @@ function MainPage() {
   };
 
   const handleReturn = () => setStatusAccount(null);
+
+  // Expose une fonction pour App afin de reset le statut (après logout)
+  useImperativeHandle(ref, () => ({
+    handleLogoutReset: () => setStatusAccount(null)
+  }));
 
   return (
     <Screen>
@@ -66,7 +71,7 @@ function MainPage() {
           </div>
         )}
 
-        {userId && <Player userId={userId} />}
+        {userId && <Player userId={userId} formRef={activeFormRef} />}
       </div>
 
       <button className="mouse_wrap" onClick={handleMouseClick}>
@@ -74,6 +79,6 @@ function MainPage() {
       </button>
     </Screen>
   );
-}
+});
 
 export default MainPage;

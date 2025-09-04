@@ -1,8 +1,12 @@
 .pc-container {
-    position: relative;
+    margin-right: 0 auto;
+    margin-left: 0 auto;
+    margin-top: 2%;
+    position: absolute;
+    top: 20%;
+    right: 7.5%;
     width: 100vw;
     max-width: 1600px;
-    margin: 0 auto;
     grid-column: 2 / 3;
 }
 

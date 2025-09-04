@@ -24,7 +24,21 @@
 }
 
 .game-letter-1 {
+    position: absolute;
     display: flex;
+    top: 23%;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    color: black;
+    z-index: 5;
+    background-color: aliceblue;
+    margin: 2%;
+}
+
+.game-letter-2 {
+    position: absolute;
+    display: flex;
+    top: 17%;
     padding-left: 3.5%;
     padding-right: 3.5%;
     color: black;
@@ -34,22 +48,25 @@
 }
 
 .parag-letter-1 {
+    position: absolute;
+    top: 29.5%;
     display: flex;
     padding: 3.5%;
     color: black;
     z-index: 5;
     background-color: aliceblue;
     margin: 2%;
-    max-height:40%;
+    max-height:35%;
     overflow: auto;
 }
 
 .letter-button-1 {
-    text-align: left;
-    height: 10%;
+    position: absolute;
+    bottom: 10%;
     margin-left: 1.95%;
-    padding: 2%;
-    padding-left: 3.5%;
+    text-align: center;
+    margin-left: 1.95%;
+    place-items: center;
 }
 
 .no-mail {

@@ -2,8 +2,8 @@
     position: relative;
     display: grid;
     grid-column: 1 / 4;
-    width: 200px;
+    width: 199px;
     place-items: center;
     object-position: center;
-    gap: 6px;
+    gap: 10px;
 }
