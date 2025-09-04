@@ -1,10 +1,10 @@
 .pc-container {
     margin-right: 0 auto;
     margin-left: 0 auto;
-    margin-top: 2%;
     position: absolute;
-    top: 20%;
-    right: 7.5%;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100vw;
     max-width: 1600px;
     grid-column: 2 / 3;

@@ -1,11 +1,11 @@
 .mouse_wrap {
-    height: 200px;
+    height: 150px;
     width: 230px;
     place-items: center;
     position: absolute;
-    top:  117%;
-    left: 105%;
-    transform: perspective(410px) rotateX(48deg) rotateY(0deg);
+    top:  122%;
+    left: 99%;
+    transform: perspective(410px) rotateX(48deg) rotateY(0deg) skewX(40deg);
 }
 .mouse {
     height: 180px;
@@ -13,6 +13,6 @@
     background-color: transparent;
     place-items: center;
     position: relative;
-    bottom: 5%;
-    transform: perspective(400px) rotateX(15deg) rotateY(0deg);
+    bottom: 20%;
+    transform: perspective(0px) rotateX(0.02deg) rotateY(0.09deg) skewX(-15deg);
 }
