@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import '../styles/PcDesktop.css'
-import Mails from './Mails';
+import MailBox from './MailBox';
 
 
 
 function PcDesktop({ player }) {
-    const [showMails, setShowMails] = useState(false)
+    const [showMails, setShowMails] = useState(false);
+    // const [showInformations, setShowInformations] = useState(null);
 
     if (showMails) {
-        return <Mails player={player} onBack={() => setShowMails(false)} />;
+        return <MailBox player={player} onBack={() => setShowMails(false)} />;
     }
 
     return (

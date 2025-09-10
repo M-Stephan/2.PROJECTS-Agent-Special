@@ -67,3 +67,10 @@ button:hover {
     background-color: #f9f9f9;
   }
 }
+
+ul {
+  list-style-type: none; /* enlève les puces */
+  padding-left: 0;       /* enlève le retrait à gauche par défaut */
+  margin: 0;             /* optionnel : enlève la marge */
+}
+
