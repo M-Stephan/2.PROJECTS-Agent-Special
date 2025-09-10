@@ -38,10 +38,12 @@
 </details>
 
 ## 🎯 Description
-- Jeu `point & click` d'enquêteur sur internet, cherchez des indices, résolvez des énigmes, remplissez des zone de textes et répondez à des calculs avec les valeurs découvertes au long de l'histoire, Créez un compte et enregistrez votre progression, ou jouez directement sans enregistrer!
+- Jeu `point & click` d'enquêteur sur internet, cherchez des indices, résolvez des énigmes, remplissez des zone de textes et répondez à des calculs avec les valeurs découvertes au long de l'histoire!
 
 
 ## 📂 Structure
+<details><summary>Aborescence</summary>
+
 ```
 racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     |
@@ -50,8 +52,6 @@ racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     ├─ Backend.sln
     |
     ├─ Backend/
-    |   ├─ bin/
-    |   ├─ obj/
     |   ├─ Controllers/
     |   |   ├─ PlayerController.cs
     |   |   └─ UserController.cs
@@ -84,14 +84,58 @@ racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     |   ├─ bin/
     |   ├─ obj/
     |   ├─ UnitTests.csproj
-    |   └─ UnitTest1.cs
+    |   └─ UnitServiceTests.cs (Ecriture en cours)
+    |
+    ├─ Frontend/
+    |   ├─ src/
+    |   |   ├─ assets/
+    |   |   |   ├─ detective_desk.png
+    |   |   |   ├─ detective_desk2.png
+    |   |   |   ├─ mouse.png
+    |   |   |   └─ mouse2.png
+    |   |   |
+    |   |   ├─ components/
+    |   |   |   ├─ App.jsx
+    |   |   |   ├─ ConnectionSuccess.jsx
+    |   |   |   ├─ Header.jsx
+    |   |   |   ├─ Login.jsx
+    |   |   |   ├─ Mails.jsx
+    |   |   |   ├─ MainPage.jsx
+    |   |   |   ├─ PcDesktop.jsx
+    |   |   |   ├─ Player.jsx
+    |   |   |   ├─ Register.jsx
+    |   |   |   └─ Screen.jsx
+    |   |   |
+    |   |   ├─ style/
+    |   |   |   ├─ App.css
+    |   |   |   ├─ ConnectionSucess.css
+    |   |   |   ├─ Form.css
+    |   |   |   ├─ Header.css
+    |   |   |   ├─ MainPage.css
+    |   |   |   ├─ Mouse.css
+    |   |   |   ├─ PcDesktop.css
+    |   |   |   ├─ Player.css
+    |   |   |   ├─ Screen.css
+    |   |   |   └─ index.css
+    |   |   |   
+    |   |   └─ main.jsx
+    |   |   
+    |   ├─ .gitignore (Créé automatiquement avec l'initialisation du projet React+Vite)
+    |   ├─ README.md (Créé automatiquement avec l'initialisation du projet React+Vite)
+    |   ├─ eslint.config.json
+    |   ├─ index.html
+    |   ├─ package-lock.json
+    |   ├─ package.json
+    |   └─ vite.config.js
     |
     └─ ProjectNotes/ (Toutes les notes durant le developpement du projet)
-    |   ├─ Backend.md (Decompose les steps pour le backend)
-    |   ├─ Histoire.md (Histoire du jeu et IRL permettra de construire le frontend et la progression du jeu)
+        ├─ Backend.md (Decompose les steps pour le backend)
+        ├─ Histoire.md (Histoire du jeu et IRL permettra de construire le frontend et la progression du jeu)
         └─ ProjectBase.md (Premier jet sur feuille description des idées de départ et des tech à utiliser)
 ```
 
+</details>
+
 ## 👤 Contact
 **Stéphan M.**  
-- Email: ➡️ ndc.dev.code@gmail.com
+- Email: ➡️ **martin.stephan9218@gmail.com**
