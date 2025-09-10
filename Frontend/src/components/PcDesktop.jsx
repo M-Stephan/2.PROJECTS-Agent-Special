@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import '../styles/PcDesktop.css'
 import MailBox from './MailBox';
-
+import InfoEnquete from './InfoEnquete';
 
 
 function PcDesktop({ player }) {
     const [showMails, setShowMails] = useState(false);
-    // const [showInformations, setShowInformations] = useState(null);
+    const [showEnquete, setShowEnquete] = useState(false);
 
-    if (showMails) {
+    if (showEnquete) {
+        return <InfoEnquete onBack={() => setShowEnquete(false)} />;
+    } else if (showMails) {
         return <MailBox player={player} onBack={() => setShowMails(false)} />;
     }
+
 
     return (
         <>
             <div className='desktop-div'>
-                <button className="desktop-folders">
+                <button onClick={() => setShowEnquete(true)} className="desktop-folders">
                     <h3>📁</h3>
                     <p>Informations d'enquête</p>
                 </button>

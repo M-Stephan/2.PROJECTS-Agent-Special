@@ -22,11 +22,9 @@ function MailBox({ player, onBack }) {
         <div className="mailbox">
             <h4 className="title-mailbox">Boîte Mail - {player.lastName}.{player.firstName[0]}@cia.gvn</h4>
             <ul className="mail-list">
-                {mailList.slice(0, progress + 1)}
+                {mailList.slice(0, progress + 4)}
             </ul>
-            <button type='button' className='letter-button-2' onClick={onBack}>
-                ⬅️ Retour au bureau
-            </button>
+            <button type='button' className='letter-button-2' onClick={onBack}>⬅️ Retour</button>
         </div>
     );
 }

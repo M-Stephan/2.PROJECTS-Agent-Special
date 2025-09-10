@@ -13,13 +13,11 @@ function Mail1({ player, onBack }) {
                     Si ce code se retrouve dans de mauvaises mains, l'avenir d'une bonne partie de la planète pourraît être en grand danger.<br /><br />
                     Nous avons tenté de retracer la piste grâce au réseau et le localisateur indique La ville de Jumet en Belgique C.P: 6040 -- Province: Hainaut. -- 
                     Latitude : 50.4412° N - Longitude : 4.4398° E<br /><br />
-                    Vous trouverez, en pièce-jointe, les indices que nous avons pu récolter.<br /><br />
-                    Les informations découvertes pourront être retrouvées dans la section Information de votre ordinateur.<br /><br />
+                    Vous trouverez, en pièce-jointe, les indices que nous avons pu récolter dans le cadre de cette enquête.<br /><br />
+                    Les informations découvertes pourront être retrouvées dans la section "Information d'enquête" de votre ordinateur.<br /><br />
                     Cordialement, Commandant Jones.
                 </p>
-                <button type='button' className='letter-button-1'>Pièces-Jointes - ✉️</button>
-                <br /><br />
-                <button type='button' className='letter-button-2' onClick={onBack}>⬅️ Retour à la boîte mail</button>
+                <button type='button' className='letter-button-2' onClick={onBack}>⬅️ Retour</button>
             </>
     );
 };
