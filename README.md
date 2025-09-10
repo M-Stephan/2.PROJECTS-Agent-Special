@@ -98,19 +98,24 @@ racine/ (https://github.com/M-Stephan/2.PROJECTS-Agent-Special)
     |   |   |   ├─ App.jsx
     |   |   |   ├─ ConnectionSuccess.jsx
     |   |   |   ├─ Header.jsx
+    |   |   |   ├─ InfoEnquete.jsx
     |   |   |   ├─ Login.jsx
-    |   |   |   ├─ Mails.jsx
+    |   |   |   ├─ Mail1.jsx
+    |   |   |   ├─ MailBox.jsx
     |   |   |   ├─ MainPage.jsx
     |   |   |   ├─ PcDesktop.jsx
     |   |   |   ├─ Player.jsx
+    |   |   |   ├─ playerApi.jsx
     |   |   |   ├─ Register.jsx
     |   |   |   └─ Screen.jsx
     |   |   |
     |   |   ├─ style/
     |   |   |   ├─ App.css
     |   |   |   ├─ ConnectionSucess.css
+    |   |   |   ├─ Enquete.css
     |   |   |   ├─ Form.css
     |   |   |   ├─ Header.css
+    |   |   |   ├─ MailBox.css
     |   |   |   ├─ MainPage.css
     |   |   |   ├─ Mouse.css
     |   |   |   ├─ PcDesktop.css
