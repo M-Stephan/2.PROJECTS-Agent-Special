@@ -43,7 +43,6 @@ const MainPage = forwardRef(({ userId: propUserId, setUserId }, ref) => {
   useImperativeHandle(ref, () => ({
     handleLogoutReset: () => setStatusAccount(null)
   }));
-
   return (
     <Screen>
       <div className={`content-wrapper ${fade ? "fade-in" : "fade-out"}`}>

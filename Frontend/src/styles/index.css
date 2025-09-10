@@ -47,13 +47,12 @@ button {
   transition: border-color 0.25s;
   place-items: center;
   text-align: center;
+  zoom: reset;
 }
+
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  zoom: 102%;
+  color: #b1b1b1;
 }
 
 @media (prefers-color-scheme: light) {

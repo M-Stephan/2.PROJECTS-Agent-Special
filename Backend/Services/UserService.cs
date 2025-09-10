@@ -131,7 +131,7 @@ namespace Backend.Services
             
             return new UserDTO
             {
-                Id = user.Id
+                Id = user.Id,
                 Email = user.Email!,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
