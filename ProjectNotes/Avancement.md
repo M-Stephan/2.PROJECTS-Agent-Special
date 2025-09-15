@@ -1,6 +1,5 @@
 # Avancement du projet AgentSpecial
-
-## Partie Backend
+# Backend
 
 ### Done
 - Initialisation d'un projet .NET Core WEB-API 9.0.304
@@ -32,9 +31,9 @@
 - PlayerDTO.cs
 - PlayerController.cs
 
-
-### Todo
-
+### Access & Documentation API Backend
+- [Scalar API](https://as-backend.duckdns.org/scalar/)
+- [Swagger API](https://as-backend.duckdns.org/swagger/index.html)
 
 ### Informations
 - Version du projet
