@@ -2,61 +2,71 @@ import React, { useState } from 'react';
 import '../styles/Form.css';
 import '../styles/Mouse.css';
 
+// Register component with form validation and API interaction
 function Register({ formRef, onRegister  }) {
-  const [formValues, setFormValues] = useState({
-    mail: '',
-    password: '',
-    passwordConfirm: '',
-    lastname: '',
-    firstname: '',
-    postal: '',
-    phone: '',
-    dob: ''
-  });
+    const [formValues, setFormValues] = useState({
+        mail: '',
+        password: '',
+        passwordConfirm: '',
+        lastname: '',
+        firstname: '',
+        postal: '',
+        phone: '',
+        dob: ''
+    });
 
-  const [errors, setErrors] = useState({
-    password: '',
-    passwordConfirm: ''
-  });
+    // State to track validation errors
+    const [errors, setErrors] = useState({
+        password: '',
+        passwordConfirm: ''
+    });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // Handle input changes and validate password and confirmation
+    const handleChange = (e) => {
+        // Destructure name and value from the event target
+        const { name, value } = e.target;
 
-    setFormValues((prev) => ({ ...prev, [name]: value }));
+        // Update form values
+        setFormValues((prev) => ({ ...prev, [name]: value }));
 
-    // Validation mot de passe
-    if (name === 'password') {
-      if (value.length < 6) {
-        setErrors((prev) => ({ ...prev, password: 'Le mot de passe doit faire au moins 6 caractères' }));
-      } else if (formValues.passwordConfirm && value !== formValues.passwordConfirm) {
-        setErrors((prev) => ({ ...prev, passwordConfirm: 'Les mots de passe ne correspondent pas' }));
-      } else {
-        setErrors((prev) => ({ ...prev, password: '', passwordConfirm: '' }));
-      }
-    }
-
-    // Validation confirmation mot de passe
-    if (name === 'passwordConfirm') {
-      if (value !== formValues.password) {
-        setErrors((prev) => ({ ...prev, passwordConfirm: 'Les mots de passe ne correspondent pas' }));
-      } else {
-        setErrors((prev) => ({ ...prev, passwordConfirm: '' }));
-      }
-    }
-  };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (errors.password || errors.passwordConfirm) {
-          alert('Veuillez corriger les erreurs avant de soumettre le formulaire');
-          return;
+        // Password validation
+        if (name === 'password') {
+            if (value.length < 6) {
+              setErrors((prev) => ({ ...prev, password: 'Le mot de passe doit faire au moins 6 caractères' }));
+            } else if (formValues.passwordConfirm && value !== formValues.passwordConfirm) {
+              setErrors((prev) => ({ ...prev, passwordConfirm: 'Les mots de passe ne correspondent pas' }));
+            } else {
+              setErrors((prev) => ({ ...prev, password: '', passwordConfirm: '' }));
+            }
         }
 
+        // Password confirmation validation
+        if (name === 'passwordConfirm') {
+            if (value !== formValues.password) {
+              setErrors((prev) => ({ ...prev, passwordConfirm: 'Les mots de passe ne correspondent pas' }));
+            } else {
+              setErrors((prev) => ({ ...prev, passwordConfirm: '' }));
+            }
+        }
+    };
+
+    // Handle form submission and interact with the registration API
+    const handleSubmit = async (e) => {
+        // Prevent default form submission behavior
+        e.preventDefault();
+
+        // Prevent submission if there are validation errors
+        if (errors.password || errors.passwordConfirm) {
+            alert('Veuillez corriger les erreurs avant de soumettre le formulaire');
+            return;
+        }
+        
+        // Validate required fields
         const dobRaw = formValues.dob;
         const [year, month, day] = dobRaw.split("-");
         const dobWithTZ = new Date(Date.UTC(year, month - 1, day)).toISOString();
 
+        // Prepare payload for API request
         const formData = {
             email: formValues.mail,
             password: formValues.password,
@@ -94,7 +104,7 @@ function Register({ formRef, onRegister  }) {
         }
     };
 
-
+    // Function to determine border color based on validation state
     const getBorderColor = (field) => {
         if (field === 'password' && errors.password) return 'red';
         if (field === 'passwordConfirm' && errors.passwordConfirm) return 'red';
@@ -102,67 +112,68 @@ function Register({ formRef, onRegister  }) {
         return '';
     };
 
-  return (
-    <form className='form' onSubmit={handleSubmit} ref={formRef}>
-      <label>
-        Adresse mail
-        <input type="text" name="mail" value={formValues.mail} onChange={handleChange} placeholder="Requis*" />
-      </label>
+    // Render the registration form
+    return (
+        <form className='form' onSubmit={handleSubmit} ref={formRef}>
+            <label>
+                Adresse mail
+                <input type="text" name="mail" value={formValues.mail} onChange={handleChange} placeholder="Requis*" />
+            </label>
 
-      <label>
-        Mot de passe
-        <input
-          type="password"
-          name="password"
-          value={formValues.password}
-          onChange={handleChange}
-          placeholder="Requis*"
-          style={{ borderColor: getBorderColor('password') }}
-        />
-      </label>
+            <label>
+                Mot de passe
+                <input
+                    type="password"
+                    name="password"
+                    value={formValues.password}
+                    onChange={handleChange}
+                    placeholder="Requis*"
+                    style={{ borderColor: getBorderColor('password') }}
+                />
+            </label>
 
-      <label>
-        Confirmer mot de passe
-        <input
-          type="password"
-          name="passwordConfirm"
-          value={formValues.passwordConfirm}
-          onChange={handleChange}
-          placeholder="Requis*"
-          style={{ borderColor: getBorderColor('passwordConfirm') }}
-        />
-      </label>
-      {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
-      {errors.passwordConfirm && <span style={{ color: 'red' }}>{errors.passwordConfirm}</span>}
+            <label>
+                Confirmer mot de passe
+                <input
+                    type="password"
+                    name="passwordConfirm"
+                    value={formValues.passwordConfirm}
+                    onChange={handleChange}
+                    placeholder="Requis*"
+                    style={{ borderColor: getBorderColor('passwordConfirm') }}
+                />
+            </label>
+            {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
+            {errors.passwordConfirm && <span style={{ color: 'red' }}>{errors.passwordConfirm}</span>}
 
-      <label>
-        Nom
-        <input type="text" name="lastname" value={formValues.lastname} onChange={handleChange} placeholder="Requis*" />
-      </label>
+            <label>
+                Nom
+                <input type="text" name="lastname" value={formValues.lastname} onChange={handleChange} placeholder="Requis*" />
+            </label>
 
-      <label>
-        Prénom
-        <input type="text" name="firstname" value={formValues.firstname} onChange={handleChange} placeholder="Requis*" />
-      </label>
+            <label>
+                Prénom
+                <input type="text" name="firstname" value={formValues.firstname} onChange={handleChange} placeholder="Requis*" />
+            </label>
 
-      <label>
-        Adresse postale
-        <input type="text" name="postal" value={formValues.postal} onChange={handleChange} placeholder="Optionnel*" />
-      </label>
+            <label>
+                Adresse postale
+                <input type="text" name="postal" value={formValues.postal} onChange={handleChange} placeholder="Optionnel*" />
+            </label>
 
-      <label>
-        Numéro de téléphone
-        <input type="text" name="phone" value={formValues.phone} onChange={handleChange} placeholder="Optionnel*" />
-      </label>
+            <label>
+                Numéro de téléphone
+                <input type="text" name="phone" value={formValues.phone} onChange={handleChange} placeholder="Optionnel*" />
+            </label>
 
-      <label>
-        Date de naissance
-        <input type="date" name="dob" value={formValues.dob} onChange={handleChange} placeholder="Requis*" />
-      </label>
+            <label>
+                Date de naissance
+                <input type="date" name="dob" value={formValues.dob} onChange={handleChange} placeholder="Requis*" />
+            </label>
 
-      <button type="submit" style={{ display: 'none' }}></button>
-    </form>
-  );
+            <button type="submit" style={{ display: 'none' }}></button>
+        </form>
+    );
 }
 
 export default Register;

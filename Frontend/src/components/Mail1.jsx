@@ -1,4 +1,5 @@
 function Mail1({ player, onBack }) {
+    // Composant to display the first email content
     return(
             <>
                 <h3 className='title-letter-1'>📧 Vous avez reçu un mail ! 📧</h3>

@@ -4,6 +4,7 @@ import '../styles/Player.css';
 import ConnectionSuccess from './ConnectionSuccess';
 import PcDesktop from "./PcDesktop";
 
+// Function to manage player data and display the PC desktop interface
 function Player({ userId, formRef }) {
     const [player, setPlayer] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,9 +16,11 @@ function Player({ userId, formRef }) {
         age: ''
     });
 
+    // Fetch player data when userId changes
     useEffect(() => {
         if (!userId) return;
 
+        // Fetch player data from the backend
         const fetchPlayer = async () => {
             try {
                 const res = await fetch(`https://as-backend.duckdns.org/api/Player/${userId}`);
@@ -38,11 +41,13 @@ function Player({ userId, formRef }) {
         fetchPlayer();
     }, [userId]);
 
+    // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    // Handle player creation form submission
     const handleCreate = async (e) => {
         if (e) e.preventDefault();
 
@@ -74,8 +79,10 @@ function Player({ userId, formRef }) {
         }
     };
 
+    // Display loading message while fetching data
     if (loading) return <p>Chargement...</p>;
 
+    // If no player data, show creation form or prompt
     if (!player) {
         if (!creating) {
             return (
@@ -107,6 +114,7 @@ function Player({ userId, formRef }) {
         }
     }
 
+    // Render the PC desktop interface with player data
     return (
         <div className='game-mail-1'>
             <div className='screen-mail-1'>

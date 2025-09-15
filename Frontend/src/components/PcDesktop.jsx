@@ -3,18 +3,21 @@ import '../styles/PcDesktop.css'
 import MailBox from './MailBox';
 import InfoEnquete from './InfoEnquete';
 
-
+// Composant to display a simulated PC desktop interface with interactive folders
 function PcDesktop({ player }) {
+    // State to manage the display of mailbox and enquête information
     const [showMails, setShowMails] = useState(false);
+    // State to manage the display of enquête information   
     const [showEnquete, setShowEnquete] = useState(false);
 
+    // Conditional rendering based on user interactions
     if (showEnquete) {
         return <InfoEnquete onBack={() => setShowEnquete(false)} />;
     } else if (showMails) {
         return <MailBox player={player} onBack={() => setShowMails(false)} />;
     }
 
-
+    // Render the desktop interface with interactive folders
     return (
         <>
             <div className='desktop-div'>
