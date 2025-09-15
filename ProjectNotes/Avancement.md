@@ -1,6 +1,5 @@
 # Avancement du projet AgentSpecial
-# Backend
-
+## Backend
 ### Done
 - Initialisation d'un projet .NET Core WEB-API 9.0.304
 - Initialisation xUnit
@@ -71,3 +70,30 @@
 </Project>
 ```
 
+## Frontend
+### Done
+- Ajout background pour la page
+- Création de la souris (boutton)
+- Composants:
+  - App
+  - ConnectionSuccess
+  - Header
+  - Login
+  - Mail1
+  - MailBox
+  - MainPage
+  - PcDesktop
+  - Player
+  - playerApi
+  - Register
+  - Screen
+
+### Tests
+- Creation d'un copte utilisateur OK
+- Login un compte existant OK
+- Créer  un personnage qui commence avec une progression de 0
+- Deconnecter
+- Lors de la connexion arriver sur le PC fictif au niveau du bureau
+- Possibilité d'ouvrir la boite mail et le premier mail
+- Possibilité d'ouvrir les informations et arriver sur un menu de choix des informations à visionner
+- Lancement local via LiveServer
